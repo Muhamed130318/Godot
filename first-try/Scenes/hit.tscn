@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://n3gaoedr754p"]
+
+[sub_resource type="GDScript" id="GDScript_3lhia"]
+script/source = "extends Area2D
+
+var hitValue = 10
+@onready var game_manager: Node = %GameManager
+
+
+func _on_body_entered(body: Node2D) -> void:
+	body.get_damage(hitValue)
+"
+
+[node name="Hit" type="Area2D"]
+collision_mask = 2
+script = SubResource("GDScript_3lhia")
